@@ -3,7 +3,7 @@ import { eo } from "date-fns/locale";
 import { zonedTimeToUtc } from "date-fns-tz";
 import moment from "moment-timezone";
 
-const timeFormat = "hh:mm:ss a";
+const timeFormat = "hh:mm a";
 
 export const formatDateToTime = (date: string | Date) => {
   return formatWithOptions({ locale: eo }, timeFormat, date);

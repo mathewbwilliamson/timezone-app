@@ -1,9 +1,7 @@
 import { StyleSheet } from "react-native";
-import { Clock } from "../components/Clock/Clock";
 import { ClockContainer } from "../components/ClockContainer/ClockContainer";
 
-import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View } from "../components/Themed";
+import { View } from "../components/Themed";
 import { clocksConfig } from "../configuration/clocksConfig";
 import { RootTabScreenProps } from "../types";
 

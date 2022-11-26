@@ -6,6 +6,7 @@ import {
   formatDateToTime,
   getTimezoneOffset,
 } from "../../services/dates";
+import { StyleSheet } from "react-native";
 
 interface ClockProps {
   timezone: string;
@@ -27,8 +28,43 @@ export const Clock: React.FC<ClockProps> = ({ label, timezone }) => {
   const offset = getTimezoneOffset(timezone);
 
   return (
-    <Text>
-      {label}: {formattedTime} = {offset}
-    </Text>
+    <View style={styles.container}>
+      <View style={styles.left}>
+        <Text style={styles.leftText}>{label}</Text>
+      </View>
+      <View style={styles.center}>
+        <Text style={styles.centerText}>{formattedTime}</Text>
+      </View>
+      <View style={styles.right}>
+        <Text style={styles.rightText}>{offset}</Text>
+      </View>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    display: "flex",
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  left: {
+    width: 140,
+  },
+  leftText: {
+    fontSize: 22,
+  },
+  center: {},
+  centerText: {
+    fontSize: 26,
+  },
+  right: {},
+  rightText: {
+    fontSize: 18,
+    color: "gray",
+  },
+});
