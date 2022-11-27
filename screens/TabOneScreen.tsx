@@ -4,10 +4,13 @@ import { ClockContainer } from "../components/ClockContainer/ClockContainer";
 import { View } from "../components/Themed";
 import { clocksConfig } from "../configuration/clocksConfig";
 import { RootTabScreenProps } from "../types";
+import { useKeepAwake } from "expo-keep-awake";
 
 export default function TabOneScreen({
   navigation,
 }: RootTabScreenProps<"TabOne">) {
+  useKeepAwake();
+
   return (
     <View style={styles.container}>
       {clocksConfig.map((clockInfo) => {
