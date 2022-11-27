@@ -2,19 +2,26 @@ import React from "react";
 import { Text, View } from "../Themed";
 import { Clock } from "../Clock/Clock";
 import { StyleSheet } from "react-native";
+import { ClockType } from "../../types/clock";
 
 interface ClockContainerProps {
-  timezone: string;
-  label: string;
+  clockInfo: ClockType;
 }
 
 export const ClockContainer: React.FC<ClockContainerProps> = ({
-  timezone,
-  label,
+  clockInfo,
 }) => {
+  const { label, timezone, backgroundColor } = clockInfo;
+
+  const backgroundStyles = { backgroundColor };
+
   return (
-    <View style={styles.container}>
-      <Clock timezone={timezone} label={label} />
+    <View style={{ ...styles.container, ...backgroundStyles }}>
+      <Clock
+        timezone={timezone}
+        label={label}
+        backgroundColor={backgroundColor}
+      />
     </View>
   );
 };
@@ -22,10 +29,13 @@ export const ClockContainer: React.FC<ClockContainerProps> = ({
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    borderBottomColor: "green",
-    borderBottomWidth: 5,
     alignContent: "center",
     justifyContent: "center",
+    borderColor: "lightgray",
+    borderBottomWidth: 1,
     flex: 1,
+  },
+  selected: {
+    backgroundColor: "red",
   },
 });

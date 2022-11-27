@@ -7,25 +7,31 @@ export const clocksConfig: ClockType[] = [
   {
     timezone: "America/Los_Angeles",
     label: "Los Angeles",
+    backgroundColor: "#FFF8D9",
   },
   {
     timezone: "America/Phoenix",
     label: "Phoenix",
+    backgroundColor: "#ECFBFF",
   },
   {
     timezone: "America/New_York",
     label: "Eastern",
+    backgroundColor: "#E5D1FF",
   },
   {
     timezone: "Europe/London",
     label: "London",
+    backgroundColor: "#F3FFD9",
   },
   {
     timezone: "Europe/Tallinn",
     label: "Tallinn",
+    backgroundColor: "#EEEEEE",
   },
   {
     timezone: "Asia/Kolkata",
     label: "New Delhi",
+    backgroundColor: "#FFEEEE",
   },
 ];

@@ -11,13 +11,7 @@ export default function TabOneScreen({
   return (
     <View style={styles.container}>
       {clocksConfig.map((clockInfo) => {
-        return (
-          <ClockContainer
-            key={clockInfo.label}
-            timezone={clockInfo.timezone}
-            label={clockInfo.label}
-          />
-        );
+        return <ClockContainer key={clockInfo.label} clockInfo={clockInfo} />;
       })}
     </View>
   );

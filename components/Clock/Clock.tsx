@@ -11,9 +11,14 @@ import { StyleSheet } from "react-native";
 interface ClockProps {
   timezone: string;
   label: string;
+  backgroundColor?: string;
 }
 
-export const Clock: React.FC<ClockProps> = ({ label, timezone }) => {
+export const Clock: React.FC<ClockProps> = ({
+  label,
+  timezone,
+  backgroundColor,
+}) => {
   const [time, setTime] = React.useState<Date>(new Date());
 
   // create a clock that ticks every second
@@ -27,15 +32,17 @@ export const Clock: React.FC<ClockProps> = ({ label, timezone }) => {
   const formattedTime = changeTimeZone(time, timezone);
   const offset = getTimezoneOffset(timezone);
 
+  const backgroundStyles = { backgroundColor };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.left}>
+    <View style={{ ...styles.container, ...backgroundStyles }}>
+      <View style={{ ...styles.left, ...backgroundStyles }}>
         <Text style={styles.leftText}>{label}</Text>
       </View>
-      <View style={styles.center}>
+      <View style={{ ...styles.center, ...backgroundStyles }}>
         <Text style={styles.centerText}>{formattedTime}</Text>
       </View>
-      <View style={styles.right}>
+      <View style={{ ...styles.right, ...backgroundStyles }}>
         <Text style={styles.rightText}>{offset}</Text>
       </View>
     </View>
@@ -52,6 +59,9 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
   },
+  selected: {
+    backgroundColor: "red",
+  },
   left: {
     width: 140,
   },
@@ -65,6 +75,6 @@ const styles = StyleSheet.create({
   right: {},
   rightText: {
     fontSize: 18,
-    color: "gray",
+    color: "#C1C1C1",
   },
 });
